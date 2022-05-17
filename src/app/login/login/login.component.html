@@ -1,0 +1,78 @@
+<app-nava-bar></app-nava-bar>
+<section class="vh-100" style="margin-top:10%;">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.png" class="img-fluid"
+            alt="Sample image">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+            <form [formGroup]="loginForm" >
+            <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+              <p class="lead fw-normal mb-0 me-3">Sign in with</p>
+              <!-- <button type="button" class="btn btn-primary btn-floating mx-1">
+                <i class="fab fa-facebook-f"></i>
+              </button>
+  
+              <button type="button" class="btn btn-primary btn-floating mx-1">
+                <i class="fab fa-twitter"></i>
+              </button>
+  
+              <button type="button" class="btn btn-primary btn-floating mx-1">
+                <i class="fab fa-linkedin-in"></i>
+              </button>
+            </div>
+  
+            <div class="divider d-flex align-items-center my-4">
+              <p class="text-center fw-bold mx-3 mb-0">Or</p> -->
+              <div class="form-group social-btn clearfix">
+               <!-- <button type="button"   class="btn btn-danger pull-left"><i class="fa fa-google-plus"></i> Google</button>-->
+              
+               <a href=" https://www.facebook.com/" class="btn btn-info pull-right"><i class="facebook-plus fa fa-facebook"></i> Facebook</a>
+<a href="https://accounts.google.com/ServiceLogin/identifier?service=mail&passive=1209600&osid=1&continue=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&followup=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&emr=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin" class="google-plus btn btn-danger pull-left"><i class="fa fa-google-plus">Google</i></a>  
+              </div>
+            </div>
+  
+            <!-- Email input -->
+            <div class="form-outline mb-3">
+              <label class="form-label" for="form3Example3">Email address</label>
+              <input type="email" id="form3Example3" class="form-control form-control-lg"
+                placeholder="Enter a valid email address" formControlName="email"/>
+              
+              <div style="color: red;" *ngIf=" f.email?.touched && f.email?.errors?.['required']" >
+                Email is required!
+            </div>
+            </div>
+           
+  
+            <!-- Password input -->
+            <div class="form-outline mb-3">
+              <label class="form-label" for="form3Example4">Password</label>
+              <input type="password" id="form3Example4" class="form-control form-control-lg"
+                placeholder="Enter password" formControlName="password" />
+             
+              <div style="color: red;" *ngIf=" f.password?.touched && f.password?.errors?.['required']" >
+                Password is required!
+            </div>
+            </div>
+            <div *ngIf="loginResult " class="alert alert-danger">{{loginResult}}</div>
+  
+            <div class="d-flex justify-content-between align-items-center">
+              
+              <a [routerLink]="['/Admin/forgetPasswordEmailForm']" class="text-body">Forgot password?</a>
+            </div>
+  
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button type="submit" class="btn btn-primary btn-lg" (click)="login()"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;">Login <a [routerLink]="['/Admin/showUsers']"
+                class="link-danger"></a></button>
+              <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a [routerLink]="['/User/userProfile']"
+                  class="link-danger">Register</a></p>
+            </div>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+ 
+  </section>

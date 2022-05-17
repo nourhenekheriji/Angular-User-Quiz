@@ -1,0 +1,74 @@
+<div class="container mt-5">
+    <div class="card">
+        <div class="d-flex justify-content-between p-3">
+            <div class="image">
+                <img src="https://img.icons8.com/color/96/000000/angularjs.png" width="70" alt="logo">
+            </div>
+            <div class="quiz-header">
+                <h4 style="font-family: cursive;">Quiz Start</h4>
+                <span style="font-size: italic;">Welcome {{name}}</span>
+            </div>
+        </div>
+        <div class="d-flex justify-content-around py-3">
+            <div class="score">
+                <h5>{{points}} Points</h5>
+            </div>
+            <div class="question-remain">
+                <span style="font-style: italic;"> Question {{currentQuestion}}</span>
+            </div>
+            <div class="timer">
+              <h5> {{counter}} sec</h5>  
+            </div>
+        </div>
+        <div class="progress mb-3">
+            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <div class="question">
+              <div class="card">
+                  <h3>{{questionList[currentQuestion]?.questionText}}</h3>
+
+              </div>
+          </div>
+          <div class="options">
+              <ol>
+                  <li>
+                      <div class="card"   >
+                          {{question?.title}} <input type="hidden" #res value="{{question?.ans}}">
+                      </div>
+                  </li>
+                  <li>
+                    <div class="card">
+                        <tr>
+                            <td> <input type="radio" name="test" #opa value="optiona"></td>  <td>{{question?.optionA}}</td>
+                    </tr>
+                    </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <tr>
+                            <td> <input type="radio" name="test"  #opb value="optionb"></td>  <td>{{question?.optionB}}</td>
+                        </tr>
+                        </div>
+                </li>
+                <li>
+                    <div class="card">
+                        <tr>
+                          <td> <input type="radio"  name="test" #opc value="optionc"></td>  <td>{{question?.optionC}}</td>
+                                              </tr>
+                        </div>
+                </li>
+              </ol>
+          </div>
+          <div class="d-flex justify-content-between">
+              <button class="btn" (click)="previousQuestion()"><i class="fa text-primary fa-chevron-left fa-3x" aria-hidden="true"></i></button>
+              <button class="btn"><i class="fa fa-refresh text-primary fa-3x" aria-hidden="true"></i></button>
+              <button *ngIf="currentQuestion<=9"class="btn" (click)="nextQuestion(opa.value,opb.value,opc.value,res.value,false)"><i class="fa text-primary fa-chevron-right fa-3x" aria-hidden="true"></i></button>
+              <button *ngIf="currentQuestion>=9"class="btn">la Score est {{points}} </button>
+           
+            </div>
+
+
+
+    </div>
+</div>
+

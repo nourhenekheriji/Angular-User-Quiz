@@ -1,0 +1,186 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+
+
+            <!-- <p class="text-center">Get started with your free account</p>
+	<p>
+		<a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
+		<a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+	</p>
+	<p class="divider-text">
+        <span class="bg-light">OR</span>
+    </p> -->
+
+<section class="login">
+    <div class="container">
+      <div class="login-form">
+        <h2 class="form-title">Create Account</h2>
+        <form [formGroup]="addClientForm" (ngSubmit)="onSubmit()" >
+         
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                </div>
+            <input type="text" class ="form-control" id = "FirstName" formControlName="firstName"
+            [(ngModel)] = "us.firstName" name = "FirstName" placeholder="Entrer Votre nom">
+             
+          </div>
+          
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                </div>
+            <input type="text" class ="form-control" id = "LastName" formControlName="lastName"
+            [(ngModel)] = "us.lastName" name = "LastName" placeholder="Entrer Votre prenom">
+             
+          </div>
+
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+            </div>
+            <input name="email" class="form-control" placeholder="Email address" type="email"
+               [(ngModel)]="us.email" formControlName="email" uniqueEmail>
+                <div *ngIf="emailExist" class="alert alert-danger">{{emailExist}}</div>
+
+            <div *ngIf=" f.email?.touched &&(f.email?.errors?.['required'] ||f.email?.errors?.pattern)" 
+
+            class="alert alert-danger">
+                <div *ngIf="f.email?.errors?.['required']">
+                    Email is required
+                </div>
+                <div *ngIf="f.email?.errors?.pattern">
+                    verif your email
+                </div>
+               
+            </div>
+        </div> 
+
+          <!-- Password -->
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+            <input name="password" [(ngModel)]="us.password" class="form-control" placeholder="Create password" type="password"
+                formControlName="password">
+
+            <div *ngIf=" f.password?.touched &&(f.password?.errors?.['required']||f.password?.errors?.pattern)"
+                class="alert alert-danger">
+
+                <div *ngIf=" f.password?.errors?.['required']">
+                    Password is required
+                </div>
+                <div *ngIf="f.password?.errors?.pattern">
+                    Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase letter
+                    and 1 number
+                </div>
+            </div>
+
+        </div> <!-- End Password -->
+        <!-- Repeat Password -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+            <input formControlName="confirmPassword"  class="form-control" placeholder="Repeat password"
+                type="password">
+
+            <div *ngIf=" f.confirmPassword?.touched &&(f.password?.errors?.['required']||f.confirmPassword?.errors?.mustMatch) "
+                class="alert alert-danger">
+
+                <div *ngIf=" f.confirmPassword?.errors?.['required']">
+                    Confirm your password
+                </div>
+                <div *ngIf="f.confirmPassword?.errors?.mustMatch">
+                    Password does not match
+                </div>
+            </div>
+
+        </div> <!-- End Repeat Password -->
+
+           <!-- Phone number -->
+           <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+            </div>
+            <select class="custom-select" style="max-width: 120px;">
+                <option selected="">+216</option>
+
+            </select>
+
+          
+            <input  type="number" class ="form-control" id = "tel" formControlName="tel"
+            [(ngModel)] = "us.tel" name = "tel"  placeholder="Entez le numero de télephone">
+          </div >
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+            </div>
+            <select class="form-control" formControlName="profession">
+                <option selected="">DOCTEUR</option>
+                <option >INGENIEUR</option>
+                <option>ETUDIANT</option>
+                <option>COMMERCIAL</option>
+                <option>CADRE</option>
+                <option>AUTRE</option>
+
+            </select>
+            
+        </div>
+                <!--Sexe-->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-neuter "></i> </span>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"> </div>
+
+                        <div class="form-check" class="col-md-5">
+                            <input class="form-check-input" type="radio" name="sexe" id="flexRadioDefault1"
+                                value="MASCULIN" checked formControlName="sexe">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Masculin
+                            </label>
+                        </div>
+                        <div class="form-check" class="col-md-5">
+                            <input class="form-check-input" type="radio" name="sexe" id="flexRadioDefault2"
+                                value="FEMININ" formControlName="sexe">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Feminin
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--End Sexe-->
+                <!--Picture-->
+                <!-- <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-picture-o"></i> </span>
+                    </div>
+                    <input (change)="onSelectFile($event)" name="picture" type="file" class="form-control" id="customFile" formControlName="picture" />
+                    <img [src]="imgURL" width="35px" height="35px" alt="">
+                </div> -->
+                <!--End Picture-->
+                <!--reCaptcha-->
+                <ngx-recaptcha2 #captchaElem [siteKey]="captchaKey" formControlName="reCaptcha">
+                </ngx-recaptcha2>
+                <!--End reCaptcha-->
+                <div class="form-group">
+                    <!-- <button type="submit" (click)="onSubmit()"><a [routerLink]="['/Admin/showUsers']">Create Account</a></button> -->
+                    <button type="submit" class="text-center">Create Account</button>
+                </div> <!-- form-group// -->
+
+                <p class="text-center">Have an account? <a [routerLink]="['/User/login']">Log In</a> </p>
+            </form>
+       <!-- </article>-->
+    </div> <!-- card.// -->
+
+</div>
+
+
+<!--container end.//-->
+
+<br><br>

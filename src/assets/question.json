@@ -1,0 +1,119 @@
+{
+	"questions":[{
+	 "questionText": "Angular est utilisé pour développer :",
+	 "options": [{
+		 "text": "Une Application Full Stack"
+	 },
+	 {
+		 "text": "Une Application cote Client",
+		 "correct": true
+	 },
+	 {
+		 "text": "Une Application cote Backend"
+	 }
+ ],
+	  "explanstion": "TS uses a colon (Une Application cote Client) to separate the property name from the property type"
+	},
+	{
+	 "questionText": " les dépendances externes sont déclarées dans le fichier :",
+	 "options": [{
+		 "text": "angular.json"
+	 },
+	 {
+		 "text": "package.json",
+		 "correct": true
+	 },
+	 {
+		 "text": "main.ts"
+	 }
+ ],
+	  "explanstion": "TS uses a colon (Une Application cote Client) to separate the property name from the property type"
+	},
+	{
+	 "questionText": " Quel est le langage recommandé pour développer Angular ?",
+	 "options": [{
+		 "text": "JavaScript"
+	 },
+	 {
+		 "text": "TypeScript",
+		 "correct": true
+	 },
+	 {
+		 "text": "Java"
+	 },
+	 {
+		 "text": "PHP"
+	 }
+ ],
+	  "explanstion": "TS uses a colon (Une Application cote Client) to separate the property name from the property type"
+ 
+	},
+	{
+	 "questionText": " Les navigateurs sont capables d'interpréter..",
+	 "options": [{
+		 "text": "un code TypeScript"
+	 },
+	 {
+		 "text": "un code JavaScript",
+		 "correct": true
+	 },
+	 {
+		 "text": "CSS"
+	 }
+ ],
+	  "explanstion": "TS uses a colon (Une Application cote Client) to separate the property name from the property type"
+ 
+	},
+	{
+	 "questionText": " Quelle est la commande qui permet de créer un projet Angular ?",
+	 "options": [{
+		 "text": "ng new project myProject"
+	 },
+	 {
+		 "text": "npm new myProject"
+		 
+	 },
+	 {
+		 "text": "ng new myProject",
+		 "correct": true
+	 }
+ ],
+	  "explanstion": "TS uses a colon (Une Application cote Client) to separate the property name from the property type"
+ 
+	},
+	{
+	 "questionText": " Quelle est la commande qui permet de lancer un projet Angular",
+	 "options": [{
+		 "text": "ng serve",
+		 "correct": true
+	 },
+	 {
+		 "text": "ng server run"
+		 
+	 },
+	 {
+		 "text": "npm server run"
+	 }
+ ],
+	  "explanstion": "TS uses a colon (Une Application cote Client) to separate the property name from the property type"
+ 
+	},
+	{
+	 "questionText": " Pour créer une Application Angular en local, il faut installer:",
+	 "options": [{
+		 "text": "nodeJs, wamp, CLI"
+	 },
+	 {
+		 "text": "NodeJS, CLI, Apache"
+		 
+	 },
+	 {
+		 "text": "NodeJS, CLI",
+		 "correct": true
+	 }
+ ],
+	  "explanstion": "TS uses a colon (Une Application cote Client) to separate the property name from the property type"
+	}
+ 
+ ]
+ }

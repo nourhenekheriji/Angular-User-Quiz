@@ -1,0 +1,396 @@
+<!--<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div *ngIf="userToUpdate.picture!=null">            
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="{{'data:image/jpg;base64,'+userToUpdate.picture}}"><span class="font-weight-bold">{{currentUser.lastName}}</span><span class="text-black-50">{{currentUser.firstName}}</span><span> </span></div>
+            </div>
+
+            <div *ngIf="currentUser.picture==null && currentUser.sexe=='MASCULIN'">            
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="../../../assets/defaultPictureProfile/defaultPictureProfileMasculin.jpg"><span class="font-weight-bold">{{currentUser.lastName}}</span><span class="text-black-50">{{currentUser.firstName}}</span><span> </span></div>
+            </div>
+            <div *ngIf="currentUser.picture==null && currentUser.sexe=='FEMININ'">            
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="../../../assets/defaultPictureProfile/defaultPictureProfileMasculin.jpg"><span class="font-weight-bold">{{currentUser.lastName}}</span><span class="text-black-50">{{currentUser.firstName}}</span><span> </span></div>
+            </div>
+            
+            <div class="col-md-3">
+                <input (change)="onSelectFile($event)" [(ngModel)]="pictureToUpdate" class="btn btn-link" type="file" name="pictureToUpdate">
+
+                
+            </div>
+            <div class="col-md-12">
+                <a [routerLink]="['/changePasswordClient']">
+                    Change your password
+                  </a>
+                  
+            </div>
+
+            <div class="col-md-12">
+                <button  type="button" class="btn btn-link"(click)=twoFactorAuthenticate()>
+                    {{twoFactorAuthenticateMessage}}
+                </button>
+                  
+            </div>
+            <div class="text-center text-lg-start mt-4 pt-2">
+            <p class="small fw-bold mt-2 pt-1 mb-0">You have an account? <a [routerLink]="['/logOut']"
+                class="link-danger">log out</a></p>
+            <button type="submit"><a [routerLink]="['/logOut']">log out</a></button> -->
+            <!-- <a [routerLink]="['/logOut']">log out </a> -->
+       <!-- </div>
+        </div>
+       
+        <div class="col-md-5 border-right">
+            <form #updateForm="ngForm" (ngSubmit)="updateClientSubmit()">
+
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings {{currentUser.role}}</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels" >First name</label><input #firstName [(ngModel)]="userToUpdate.firstName" name="firstName"type="text" class="form-control" placeholder="first name"  ></div>
+                    <div class="col-md-6"><label class="labels">Last name</label><input #lastName  [(ngModel)]="userToUpdate.lastName" name="lastName" type="text" class="form-control"  placeholder="last name" ></div>
+                
+                </div>
+
+                
+                <ngx-recaptcha2 #captchaElem [siteKey]="captchaKey" [formControl]="captcha">
+                </ngx-recaptcha2>
+                
+                <div *ngIf="(userToUpdate.firstName!='' && userToUpdate.lastName!='') && captcha.valid ">  
+                <div class="mt-5 text-center">
+                    <button class="btn btn-primary profile-button" type="submit" (click)="updateClientSubmit()">Save Profile</button></div>
+            </div>
+                </div>
+        </form>
+        </div>
+       
+    </div>
+</div>-->
+<!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+     <button (click)="logOut()"  type="button" class="btn btn-primary btn-lg" style="margin-top: 50px;"> Deconnection</button> 
+      <section class="login">
+        <div class="container">
+          <div class="login-form">
+            <h2 class="form-title">Create User Account</h2>
+           <form [formGroup]="addUserForm" (ngSubmit) = "addUser()">
+                
+             
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                <input type="text" class ="form-control"
+                [(ngModel)] = "user.firstName" placeholder="Entrer Votre nom">
+                 
+              </div>
+              
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                <input type="text" class ="form-control" formControlName="lastName"
+                [(ngModel)] = "user.LastName" placeholder="Entrer Votre prenom">
+                 
+              </div>
+
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                </div>
+                <input name="email" class="form-control" placeholder="Email address" type="email"
+                addUserForm="email" formControlName="email" uniqueEmail>
+                    <div *ngIf="emailExist" class="alert alert-danger">{{emailExist}}</div>
+
+                <div *ngIf=" f.email?.touched &&(f.email?.errors?.['required'] ||f.email?.errors?.pattern)" 
+
+                class="alert alert-danger">
+                    <div *ngIf="f.email?.errors?.['required']">
+                        Email is required
+                    </div>
+                    <div *ngIf="f.email?.errors?.pattern">
+                        verif your email
+                    </div>
+                   
+                </div>
+            </div> 
+
+              Password 
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                </div>
+                <input name="password" class="form-control" placeholder="Create password" type="password"
+                addUserForm="password"  formControlName="password">
+
+                <div *ngIf=" f.password?.touched &&(f.password?.errors?.['required']||f.password?.errors?.pattern)"
+                    class="alert alert-danger">
+
+                    <div *ngIf=" f.password?.errors?.['required']">
+                        Password is required
+                    </div>
+                    <div *ngIf="f.password?.errors?.pattern">
+                        Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase letter
+                        and 1 number
+                    </div>
+                </div>
+
+            </div>  End Password 
+             Repeat Password 
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                </div>
+                <input addUserForm="confirmPassword"  formControlName="confirmPassword" class="form-control" placeholder="Repeat password"
+                    type="password">
+
+                <div *ngIf=" f.confirmPassword?.touched &&(f.password?.errors?.['required']||f.confirmPassword?.errors?.mustMatch) "
+                    class="alert alert-danger">
+
+                    <div *ngIf=" f.confirmPassword?.errors?.['required']">
+                        Confirm your password
+                    </div>
+                    <div *ngIf="f.confirmPassword?.errors?.mustMatch">
+                        Password does not match
+                    </div>
+                </div>
+
+            </div> End Repeat Password 
+
+                Phone number 
+               <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                </div>
+                <select class="custom-select" style="max-width: 120px;">
+                    <option selected="">+216</option>
+
+                </select>
+
+              
+                <input  type="number" class ="form-control" id = "tel" 
+                [(ngModel)] = "user.tel" name = "tel"  placeholder="Entez le numero de télephone">
+              </div >
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                </div>
+                <select class="form-control" formControlName="tel"  addUserForm="profession">
+                    <option selected="">DOCTEUR</option>
+                    <option >INGENIEUR</option>
+                    <option>ETUDIANT</option>
+                    <option>COMMERCIAL</option>
+                    <option>CADRE</option>
+                    <option>AUTRE</option>
+
+                </select>
+                
+            </div>
+                <div class="form-group form-button">
+                  <button type="submit" [disabled]="addUser()"><a [routerLink]="['/showUsers']">
+                    Enregistrer</a>
+                  </button>
+                </div>
+
+             </form>
+          </div>
+        </div>
+      </section>-->
+    <!--<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div *ngIf="userToUpdate.picture!=null">            
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="{{'data:image/jpg;base64,'+userToUpdate.picture}}"><span class="font-weight-bold">{{currentUser.lastName}}</span><span class="text-black-50">{{currentUser.firstName}}</span><span> </span></div>
+            </div>
+
+            <div *ngIf="currentUser.picture==null && currentUser.sexe=='MASCULIN'">            
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="../../../assets/defaultPictureProfile/defaultPictureProfileMasculin.jpg"><span class="font-weight-bold">{{currentUser.lastName}}</span><span class="text-black-50">{{currentUser.firstName}}</span><span> </span></div>
+            </div>
+            <div *ngIf="currentUser.picture==null && currentUser.sexe=='FEMININ'">            
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="../../../assets/defaultPictureProfile/defaultPictureProfileMasculin.jpg"><span class="font-weight-bold">{{currentUser.lastName}}</span><span class="text-black-50">{{currentUser.firstName}}</span><span> </span></div>
+            </div>
+            
+            <div class="col-md-3">
+                <input (change)="onSelectFile($event)" [(ngModel)]="pictureToUpdate" class="btn btn-link" type="file" name="pictureToUpdate">
+
+                
+            </div>
+            <div class="col-md-12">
+                <a [routerLink]="['/changePasswordClient']">
+                    Change your password
+                  </a>
+                  
+            </div>
+
+            <div class="col-md-12">
+                <button  type="button" class="btn btn-link"(click)=twoFactorAuthenticate()>
+                    {{twoFactorAuthenticateMessage}}
+                </button>
+                  
+            </div>
+            <div class="text-center text-lg-start mt-4 pt-2">
+            <p class="small fw-bold mt-2 pt-1 mb-0">You have an account? <a [routerLink]="['/logOut']"
+                class="link-danger">log out</a></p>
+            <button type="submit"><a [routerLink]="['/logOut']">log out</a></button> -->
+            <!-- <a [routerLink]="['/logOut']">log out </a> -->
+       <!-- </div>
+        </div>
+       
+        <div class="col-md-5 border-right">
+            <form #updateForm="ngForm" (ngSubmit)="updateClientSubmit()">
+
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings {{currentUser.role}}</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels" >First name</label><input #firstName [(ngModel)]="userToUpdate.firstName" name="firstName"type="text" class="form-control" placeholder="first name"  ></div>
+                    <div class="col-md-6"><label class="labels">Last name</label><input #lastName  [(ngModel)]="userToUpdate.lastName" name="lastName" type="text" class="form-control"  placeholder="last name" ></div>
+                
+                </div>
+
+                
+                <ngx-recaptcha2 #captchaElem [siteKey]="captchaKey" [formControl]="captcha">
+                </ngx-recaptcha2>
+                
+                <div *ngIf="(userToUpdate.firstName!='' && userToUpdate.lastName!='') && captcha.valid ">  
+                <div class="mt-5 text-center">
+                    <button class="btn btn-primary profile-button" type="submit" (click)="updateClientSubmit()">Save Profile</button></div>
+            </div>
+                </div>
+        </form>
+        </div>
+       
+    </div>
+</div>-->
+<app-nava-bar></app-nava-bar>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+
+    <!-- <button (click)="logOut()"  type="button" class="btn btn-primary btn-lg" style="margin-top: 50px;"> Deconnection</button> -->
+      <section class="login">
+        <div class="container">
+          <div class="login-form">
+            <h2 class="form-title">Create User Account</h2>
+            <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()" >
+             
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                <input type="text" class ="form-control" id = "FirstName" formControlName="firstName"
+                [(ngModel)] = "us.firstName" name = "FirstName" placeholder="Entrer Votre nom">
+                 
+              </div>
+              
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                <input type="text" class ="form-control" id = "LastName" formControlName="lastName"
+                [(ngModel)] = "us.lastName" name = "LastName" placeholder="Entrer Votre prenom">
+                 
+              </div>
+
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                </div>
+                <input name="email" class="form-control" placeholder="Email address" type="email"
+                   [(ngModel)]="us.email" formControlName="email" uniqueEmail>
+                    <div *ngIf="emailExist" class="alert alert-danger">{{emailExist}}</div>
+
+                <div *ngIf=" f.email?.touched &&(f.email?.errors?.['required'] ||f.email?.errors?.pattern)" 
+
+                class="alert alert-danger">
+                    <div *ngIf="f.email?.errors?.['required']">
+                        Email is required
+                    </div>
+                    <div *ngIf="f.email?.errors?.pattern">
+                        verif your email
+                    </div>
+                   
+                </div>
+            </div> 
+
+              <!-- Password -->
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                </div>
+                <input name="password" [(ngModel)]="us.password" class="form-control" placeholder="Create password" type="password"
+                    formControlName="password">
+
+                <div *ngIf=" f.password?.touched &&(f.password?.errors?.['required']||f.password?.errors?.pattern)"
+                    class="alert alert-danger">
+
+                    <div *ngIf=" f.password?.errors?.['required']">
+                        Password is required
+                    </div>
+                    <div *ngIf="f.password?.errors?.pattern">
+                        Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase letter
+                        and 1 number
+                    </div>
+                </div>
+
+            </div> <!-- End Password -->
+            <!-- Repeat Password -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                </div>
+                <input formControlName="confirmPassword"  class="form-control" placeholder="Repeat password"
+                    type="password">
+
+                <div *ngIf=" f.confirmPassword?.touched &&(f.password?.errors?.['required']||f.confirmPassword?.errors?.mustMatch) "
+                    class="alert alert-danger">
+
+                    <div *ngIf=" f.confirmPassword?.errors?.['required']">
+                        Confirm your password
+                    </div>
+                    <div *ngIf="f.confirmPassword?.errors?.mustMatch">
+                        Password does not match
+                    </div>
+                </div>
+
+            </div> <!-- End Repeat Password -->
+
+               <!-- Phone number -->
+               <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                </div>
+                <select class="custom-select" style="max-width: 120px;">
+                    <option selected="">+216</option>
+
+                </select>
+
+              
+                <input  type="number" class ="form-control" id = "tel" formControlName="tel"
+                [(ngModel)] = "us.tel" name = "tel"  placeholder="Entez le numero de télephone">
+              </div >
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                </div>
+                <select class="form-control" formControlName="profession">
+                    <option selected="">DOCTEUR</option>
+                    <option >INGENIEUR</option>
+                    <option>ETUDIANT</option>
+                    <option>COMMERCIAL</option>
+                    <option>CADRE</option>
+                    <option>AUTRE</option>
+
+                </select>
+                
+            </div>
+                <div class="form-group form-button">
+                  <button type="submit"  class="text-center">Enregistrer
+                  </button>
+                </div>
+
+            </form>
+          </div>
+        </div>
+      </section>
+    

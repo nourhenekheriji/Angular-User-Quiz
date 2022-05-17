@@ -1,0 +1,64 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+        <button class="w3-button w3-circle w3-teal">+ <a [routerLink]="['Admin/addClient']"></a> </button> 
+
+
+    <table class="table table-striped custab">
+    <thead>
+        <tr>
+            
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Sexe</th>
+            <th>Tel</th>
+            <th>Address</th>
+            <th>Role</th>
+            <th>createdAt</th>
+            <th>accountStatus</th>
+        </tr> 
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of listeUsers">
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.sexe}}</td>
+            <td>{{user.tel}}</td>
+            <td>{{user.address}}</td>
+            <td>{{user.role}}</td>
+            <td>{{user.createdAt}}</td>
+            <td>{{user.accountStatus}}</td>
+            <!-- <td> <button class="btn" (click)="sendNotifDelete(user.email)"><i class="fa fa-close"></i></button></td> -->
+          <td><button class="w3-button w3-white w3-border w3-border-red w3-round-large" (click)="sendNotifDelete(user.email)">Delete</button></td>
+          </tr>
+          
+    </tbody>
+    </table>
+    </div>
+</div>
+<!-- <script>
+    //Get the button:
+mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+</script> -->
+
